@@ -28,6 +28,10 @@ type PageQuery {
   ): PageSearchResponse! @auth(requires: ["manage:system", "read:pages"])
 
   list: [PageListItem!]! @auth(requires: ["manage:system"])
+
+  single(
+    id: Int!
+  ):Page
 }
 
 # -----------------------------------------------
@@ -80,6 +84,8 @@ type PageResponse {
 
 type Page {
   id: Int!
+  path: String!
+  content: String!
 }
 
 type PageHistory {

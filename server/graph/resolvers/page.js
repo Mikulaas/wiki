@@ -42,7 +42,10 @@ module.exports = {
         'createdAt',
         'updatedAt'
       ])
-    }
+    },
+      async single (obj,args, context) {
+        return WIKI.models.pages.query().findbyId(args.id)
+      }
   },
   PageMutation: {
     async create(obj, args, context) {
